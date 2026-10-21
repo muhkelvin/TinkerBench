@@ -120,16 +120,19 @@ alter table public.post_projects enable row level security;
 alter table public.admins enable row level security;
 
 -- 9. RLS Policies: projects
+drop policy if exists "public read published projects" on public.projects;
 create policy "public read published projects"
   on public.projects for select
   to anon, authenticated
   using (publication_status = 'published');
 
+drop policy if exists "admin read all projects" on public.projects;
 create policy "admin read all projects"
   on public.projects for select
   to authenticated
   using (public.is_admin());
 
+drop policy if exists "admin write projects" on public.projects;
 create policy "admin write projects"
   on public.projects for all
   to authenticated
@@ -137,16 +140,19 @@ create policy "admin write projects"
   with check (public.is_admin());
 
 -- 10. RLS Policies: posts
+drop policy if exists "public read published posts" on public.posts;
 create policy "public read published posts"
   on public.posts for select
   to anon, authenticated
   using (publication_status = 'published');
 
+drop policy if exists "admin read all posts" on public.posts;
 create policy "admin read all posts"
   on public.posts for select
   to authenticated
   using (public.is_admin());
 
+drop policy if exists "admin write posts" on public.posts;
 create policy "admin write posts"
   on public.posts for all
   to authenticated
@@ -154,6 +160,7 @@ create policy "admin write posts"
   with check (public.is_admin());
 
 -- 11. RLS Policies: post_projects
+drop policy if exists "public read post_projects" on public.post_projects;
 create policy "public read post_projects"
   on public.post_projects for select
   to anon, authenticated
@@ -168,6 +175,7 @@ create policy "public read post_projects"
     )
   );
 
+drop policy if exists "admin write post_projects" on public.post_projects;
 create policy "admin write post_projects"
   on public.post_projects for all
   to authenticated
@@ -192,23 +200,28 @@ on conflict (id) do update set
   allowed_mime_types = array['image/jpeg', 'image/png', 'image/webp'];
 
 -- Storage RLS
+drop policy if exists "public read media bucket" on storage.objects;
 create policy "public read media bucket"
   on storage.objects for select
   to anon, authenticated
   using (bucket_id = 'media');
 
+drop policy if exists "admin insert media bucket" on storage.objects;
 create policy "admin insert media bucket"
   on storage.objects for insert
   to authenticated
   with check (bucket_id = 'media' and public.is_admin());
 
+drop policy if exists "admin update media bucket" on storage.objects;
 create policy "admin update media bucket"
   on storage.objects for update
   to authenticated
   using (bucket_id = 'media' and public.is_admin())
   with check (bucket_id = 'media' and public.is_admin());
 
+drop policy if exists "admin delete media bucket" on storage.objects;
 create policy "admin delete media bucket"
   on storage.objects for delete
   to authenticated
   using (bucket_id = 'media' and public.is_admin());
+
