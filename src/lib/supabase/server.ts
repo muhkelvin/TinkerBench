@@ -9,7 +9,7 @@ import { verifySessionToken, SESSION_COOKIE_NAME } from '@/lib/auth/session';
  * If SUPABASE_SERVICE_ROLE_KEY is set, uses service role client to execute
  * admin server actions with full verified permissions (bypassing client-side RLS).
  */
-export async function createAdminClient() {
+export async function createAdminClient(): Promise<any> {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -19,30 +19,31 @@ export async function createAdminClient() {
         persistSession: false,
         autoRefreshToken: false,
       },
-    });
+    }) as any;
   }
 
+  const cookieStore = await cookies();
   const supabasePublishableKey =
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
     'placeholder-publishable-key';
 
-  return createServerClient<any>(supabaseUrl, supabasePublishableKey, {
+  return createServerClient(supabaseUrl, supabasePublishableKey, {
     cookies: {
       getAll() {
-        return cookieStore.getAll();
+        return (cookieStore.getAll() as any);
       },
       setAll(cookiesToSet) {
         try {
           cookiesToSet.forEach(({ name, value, options }) => {
-            cookieStore.set(name, value, options);
+            (cookieStore.set as any)(name, value, options);
           });
         } catch {
           // Ignore if called from Server Component
         }
       },
     },
-  });
+  }) as any;
 }
 
 /**
