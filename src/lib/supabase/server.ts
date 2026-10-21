@@ -22,9 +22,10 @@ export async function createAdminClient() {
     });
   }
 
-  const cookieStore = await cookies();
   const supabasePublishableKey =
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || 'placeholder-publishable-key';
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+    'placeholder-publishable-key';
 
   return createServerClient<any>(supabaseUrl, supabasePublishableKey, {
     cookies: {

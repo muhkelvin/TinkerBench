@@ -19,6 +19,7 @@ import {
   AlertCircle,
   CheckCircle2,
   BookOpen,
+  Code2,
 } from 'lucide-react';
 import { GithubIcon } from '@/components/ui/icons';
 
