@@ -4,6 +4,8 @@ import { getAllPostsAdmin } from '@/lib/data/posts';
 import { formatDate } from '@/lib/utils';
 import { Plus, Edit, ExternalLink } from 'lucide-react';
 
+export const instant = false;
+
 export default async function AdminNotesPage() {
   const posts = await getAllPostsAdmin();
 

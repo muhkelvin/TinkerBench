@@ -16,7 +16,11 @@ export const buildLogItemSchema = z.object({
 
 export const projectSchema = z
   .object({
-    title: z.string().trim().min(1, 'Judul proyek wajib diisi').max(200),
+    title: z
+      .string()
+      .trim()
+      .min(1, 'Judul proyek wajib diisi')
+      .max(500, 'Judul proyek terlalu panjang (maksimal 500 karakter)'),
     slug: z
       .string()
       .trim()
@@ -87,7 +91,14 @@ export type ProjectInput = z.infer<typeof projectSchema>;
 
 export const postSchema = z
   .object({
-    title: z.string().trim().min(1, 'Judul catatan wajib diisi').max(250),
+    title: z
+      .string()
+      .trim()
+      .min(1, 'Judul catatan wajib diisi')
+      .max(
+        500,
+        'Judul catatan terlalu panjang (maksimal 500 karakter). Untuk penjelasan panjang, gunakan bagian Ringkasan/Excerpt atau Isi Konten.'
+      ),
     slug: z
       .string()
       .trim()

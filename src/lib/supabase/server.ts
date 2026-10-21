@@ -1,14 +1,28 @@
 import { createServerClient } from '@supabase/ssr';
+import { createClient } from '@supabase/supabase-js';
 import { cookies } from 'next/headers';
 import type { Database } from '@/types/database.types';
 import { verifySessionToken, SESSION_COOKIE_NAME } from '@/lib/auth/session';
 
 /**
  * Server client using Next.js 16 async cookie store for authenticated operations.
+ * If SUPABASE_SERVICE_ROLE_KEY is set, uses service role client to execute
+ * admin server actions with full verified permissions (bypassing client-side RLS).
  */
 export async function createAdminClient() {
-  const cookieStore = await cookies();
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (serviceRoleKey && !serviceRoleKey.includes('placeholder')) {
+    return createClient<any>(supabaseUrl, serviceRoleKey, {
+      auth: {
+        persistSession: false,
+        autoRefreshToken: false,
+      },
+    });
+  }
+
+  const cookieStore = await cookies();
   const supabasePublishableKey =
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || 'placeholder-publishable-key';
 
@@ -57,7 +71,25 @@ export async function verifyAdmin(): Promise<{ isAdmin: boolean; user: any }> {
       return { isAdmin: false, user: null };
     }
 
-    const supabase = await createAdminClient();
+    const cookieStore = await cookies();
+    const supabasePublishableKey =
+      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || 'placeholder-publishable-key';
+
+    const supabase = createServerClient<any>(supabaseUrl, supabasePublishableKey, {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll();
+        },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) => {
+              cookieStore.set(name, value, options);
+            });
+          } catch { }
+        },
+      },
+    });
+
     const {
       data: { user },
       error: userError,

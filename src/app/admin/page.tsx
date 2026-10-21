@@ -5,6 +5,8 @@ import { getAllPostsAdmin } from '@/lib/data/posts';
 import { formatDate } from '@/lib/utils';
 import { Plus, FolderGit2, PenTool, ExternalLink, ArrowRight } from 'lucide-react';
 
+export const instant = false;
+
 export default async function AdminDashboardPage() {
   const [projects, posts] = await Promise.all([
     getAllProjectsAdmin(),

@@ -4,6 +4,8 @@ import { getPostByIdAdmin } from '@/lib/data/posts';
 import { getAllProjectsAdmin } from '@/lib/data/projects';
 import { PostForm } from '@/components/admin/PostForm';
 
+export const instant = false;
+
 interface EditNotePageProps {
   params: Promise<{ id: string }>;
 }

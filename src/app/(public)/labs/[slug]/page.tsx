@@ -222,8 +222,14 @@ async function ProjectDetailContent({ params }: ProjectDetailPageProps) {
 
       {/* 6. Technical Content (Markdown) */}
       {project.content && (
-        <section className="space-y-4">
-          <MarkdownRenderer content={project.content} />
+        <section className="space-y-3">
+          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#686960]">
+            <Code2 className="w-4 h-4 text-[#24251F]" />
+            <span>Detail & Pendekatan Teknis</span>
+          </div>
+          <div className="p-6 sm:p-8 rounded-2xl border border-[#E5E1D6] bg-[#FFFEFA] shadow-sm">
+            <MarkdownRenderer content={project.content} />
+          </div>
         </section>
       )}
 

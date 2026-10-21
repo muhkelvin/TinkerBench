@@ -149,7 +149,7 @@ async function NoteDetailContent({ params }: NoteDetailPageProps) {
       )}
 
       {/* 5. Main Markdown Content */}
-      <section className="pt-2">
+      <section className="p-6 sm:p-10 rounded-2xl border border-[#E5E1D6] bg-[#FFFEFA] shadow-sm">
         <MarkdownRenderer content={post.content} />
       </section>
 

@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { getProjectByIdAdmin } from '@/lib/data/projects';
 import { ProjectForm } from '@/components/admin/ProjectForm';
 
+export const instant = false;
+
 interface EditProjectPageProps {
   params: Promise<{ id: string }>;
 }

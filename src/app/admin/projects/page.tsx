@@ -5,6 +5,8 @@ import { formatDate } from '@/lib/utils';
 import { Plus, Edit, Archive, Trash2, ExternalLink } from 'lucide-react';
 import { archiveProject, deleteProject } from '@/actions/projects';
 
+export const instant = false;
+
 export default async function AdminProjectsPage() {
   const projects = await getAllProjectsAdmin();
 

@@ -231,9 +231,18 @@ export function PostForm({
       <div className="space-y-6 rounded-xl border border-[#E5E1D6] bg-[#FFFEFA] p-5 sm:p-6 shadow-sm">
         {/* Title */}
         <div>
-          <label className="block font-mono text-xs font-medium text-[#24251F] mb-1.5">
-            Judul Catatan *
-          </label>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="block font-mono text-xs font-medium text-[#24251F]">
+              Judul Catatan *
+            </label>
+            <span
+              className={`font-mono text-[11px] ${
+                title.length > 500 ? 'text-[#B42318] font-semibold' : 'text-[#686960]'
+              }`}
+            >
+              {title.length}/500
+            </span>
+          </div>
           <input
             type="text"
             required

@@ -2,7 +2,7 @@
 
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
-import { createAdminClient } from '@/lib/supabase/server';
+import { createServerClient } from '@supabase/ssr';
 import { createSessionToken, SESSION_COOKIE_NAME } from '@/lib/auth/session';
 
 export async function loginAdmin(prevState: { error?: string } | null, formData: FormData) {
@@ -18,32 +18,50 @@ export async function loginAdmin(prevState: { error?: string } | null, formData:
 
   let isAuthenticated = false;
 
-  // 1. Check against configured admin credentials in .env.local
-  if (email === configuredAdminEmail && password === configuredAdminPassword) {
-    isAuthenticated = true;
-  }
-
-  // 2. If not matched, try Supabase auth if configured with real project
+  // 1. If real Supabase is configured, attempt Supabase Auth sign-in to set auth session cookies
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-  const isSupabaseConfigured = supabaseUrl && !supabaseUrl.includes('placeholder');
+  const supabasePublishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || '';
+  const isSupabaseConfigured =
+    supabaseUrl &&
+    !supabaseUrl.includes('placeholder') &&
+    supabasePublishableKey &&
+    !supabasePublishableKey.includes('placeholder');
 
-  if (!isAuthenticated && isSupabaseConfigured) {
+  const cookieStore = await cookies();
+
+  if (isSupabaseConfigured) {
     try {
-      const supabase = await createAdminClient();
+      const supabase = createServerClient<any>(supabaseUrl, supabasePublishableKey, {
+        cookies: {
+          getAll() {
+            return cookieStore.getAll();
+          },
+          setAll(cookiesToSet) {
+            try {
+              cookiesToSet.forEach(({ name, value, options }) => {
+                cookieStore.set(name, value, options);
+              });
+            } catch { }
+          },
+        },
+      });
+
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
       if (!error && data?.user) {
-        const { data: isAdmin } = await supabase.rpc('is_admin');
-        if (isAdmin) {
-          isAuthenticated = true;
-        }
+        isAuthenticated = true;
       }
     } catch {
-      // Continue to error if auth fails
+      // Continue to local credentials check
     }
+  }
+
+  // 2. Check against configured admin credentials in .env.local
+  if (!isAuthenticated && email === configuredAdminEmail && password === configuredAdminPassword) {
+    isAuthenticated = true;
   }
 
   if (!isAuthenticated) {
@@ -52,7 +70,6 @@ export async function loginAdmin(prevState: { error?: string } | null, formData:
 
   // Set secure signed admin session cookie (7 days)
   const token = await createSessionToken(email);
-  const cookieStore = await cookies();
   cookieStore.set(SESSION_COOKIE_NAME, token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
@@ -70,8 +87,22 @@ export async function logoutAdmin() {
 
   try {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+    const supabasePublishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || '';
     if (supabaseUrl && !supabaseUrl.includes('placeholder')) {
-      const supabase = await createAdminClient();
+      const supabase = createServerClient<any>(supabaseUrl, supabasePublishableKey, {
+        cookies: {
+          getAll() {
+            return cookieStore.getAll();
+          },
+          setAll(cookiesToSet) {
+            try {
+              cookiesToSet.forEach(({ name, value, options }) => {
+                cookieStore.set(name, value, options);
+              });
+            } catch { }
+          },
+        },
+      });
       await supabase.auth.signOut();
     }
   } catch {

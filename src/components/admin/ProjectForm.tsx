@@ -272,16 +272,28 @@ export function ProjectForm({ initialData }: ProjectFormProps) {
       <div className="space-y-6 rounded-xl border border-[#E5E1D6] bg-[#FFFEFA] p-5 sm:p-6 shadow-sm">
         {/* Title */}
         <div>
-          <label className="block font-mono text-xs font-medium text-[#24251F] mb-1.5">
-            Judul Proyek *
-          </label>
+          <div className="flex items-center justify-between mb-1.5">
+            <label className="block font-mono text-xs font-medium text-[#24251F]">
+              Judul Proyek *
+            </label>
+            <span
+              className={`font-mono text-[11px] ${
+                title.length > 500 ? 'text-[#B42318] font-semibold' : 'text-[#686960]'
+              }`}
+            >
+              {title.length}/500 karakter
+            </span>
+          </div>
           <input
             type="text"
             required
+            maxLength={500}
             value={title}
             onChange={(e) => handleTitleChange(e.target.value)}
             placeholder="Contoh: NexaPOS — Modern Cloud Point of Sale"
-            className="w-full h-11 px-3 text-[16px] rounded-lg border border-[#E5E1D6] bg-[#F5F3EC] text-[#24251F] focus:border-[#24251F] focus:outline-none transition-colors"
+            className={`w-full h-11 px-3 text-[16px] rounded-lg border ${
+              title.length > 500 ? 'border-[#B42318]' : 'border-[#E5E1D6]'
+            } bg-[#F5F3EC] text-[#24251F] focus:border-[#24251F] focus:outline-none transition-colors`}
           />
         </div>
 
