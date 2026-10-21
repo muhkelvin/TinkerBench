@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --bench-bg: #F5F3EC;
+  --bench-surface: #FFFEFA;
+  --bench-primary: #24251F;
+  --bench-secondary: #686960;
+  --bench-border: #E5E1D6;
+  --bench-lime: #C7E36A;
+  --bench-danger: #B42318;
+}
+
+@theme inline {
+  --color-bench-bg: var(--bench-bg);
+  --color-bench-surface: var(--bench-surface);
+  --color-bench-primary: var(--bench-primary);
+  --color-bench-secondary: var(--bench-secondary);
+  --color-bench-border: var(--bench-border);
+  --color-bench-lime: var(--bench-lime);
+  --color-bench-danger: var(--bench-danger);
+
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
+}
+
+html,
+body {
+  background-color: var(--bench-bg);
+  color: var(--bench-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure no accidental horizontal overflow on mobile */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Target touch size minimum 44px for buttons & navigation items */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fluid typography clamps */
+.h1-fluid {
+  font-size: clamp(1.85rem, 4vw + 1rem, 2.75rem);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+
+.h2-fluid {
+  font-size: clamp(1.4rem, 2.5vw + 0.8rem, 2rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+/* Bench Tag style */
+.bench-tag {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: -0.01em;
+}
+
+.bench-tag-active {
+  background-color: var(--bench-lime);
+  color: var(--bench-primary);
+}
+
+.bench-tag-muted {
+  background-color: #EAE6DB;
+  color: var(--bench-primary);
+}
+
+/* Sticky Action Bar for Mobile Admin */
+.mobile-action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  background-color: rgba(255, 254, 250, 0.95);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--bench-border);
+  z-index: 40;
+}
