@@ -145,7 +145,7 @@ export const idDictionary: Dictionary = {
     breadcrumbLabs: 'Labs',
     notFound: 'Proyek Tidak Ditemukan',
     publishedOn: 'Terbit:',
-    tryDemo: 'Coba Demo Langsung',
+    tryDemo: 'Lihat Website Langsung',
     demoUnavailable: 'Demo publik belum dibuka untuk tingkat',
     sourceCode: 'Source Code',
     chatWa: 'Tertarik? Chat WA',

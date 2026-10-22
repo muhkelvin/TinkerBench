@@ -10,6 +10,7 @@ interface LanguageContextType {
   t: Dictionary;
   setLocale: (locale: Locale) => void;
   isDetecting: boolean;
+  initialLocale: Locale;
 }
 
 const dictionaries: Record<Locale, Dictionary> = {
@@ -98,7 +99,9 @@ export function LanguageProvider({
     const stored = getStoredLocale();
     if (stored) {
       if (stored !== locale) {
-        setLocaleState(stored);
+        startTransition(() => {
+          setLocaleState(stored);
+        });
       }
       persistLocale(stored);
       return;
@@ -147,9 +150,11 @@ export function LanguageProvider({
         // Fallback to timezone detection result
       }
 
-      setLocaleState(detected);
-      persistLocale(detected);
-      setIsDetecting(false);
+      startTransition(() => {
+        setLocaleState(detected);
+        persistLocale(detected);
+        setIsDetecting(false);
+      });
     };
 
     detectVisitorLocale();
@@ -160,6 +165,7 @@ export function LanguageProvider({
     t: dictionaries[locale] || idDictionary,
     setLocale,
     isDetecting,
+    initialLocale,
   };
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
@@ -170,13 +176,25 @@ export function useLanguage() {
   if (!context) {
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
-  return context;
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const activeLocale = mounted ? context.locale : context.initialLocale;
+  const activeT = mounted ? context.t : (dictionaries[context.initialLocale] || idDictionary);
+
+  return {
+    ...context,
+    locale: activeLocale,
+    t: activeT,
+    mounted,
+  };
 }
 
 export function useTranslation() {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useTranslation must be used within a LanguageProvider');
-  }
-  return { t: context.t, locale: context.locale, setLocale: context.setLocale };
+  const { t, locale, setLocale, mounted } = useLanguage();
+  return { t, locale, setLocale, mounted };
 }

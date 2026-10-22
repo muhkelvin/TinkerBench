@@ -145,7 +145,7 @@ export const enDictionary: Dictionary = {
     breadcrumbLabs: 'Labs',
     notFound: 'Project Not Found',
     publishedOn: 'Published:',
-    tryDemo: 'Try Live Demo',
+    tryDemo: 'Try See Website',
     demoUnavailable: 'Public demo is not yet opened for',
     sourceCode: 'Source Code',
     chatWa: 'Interested? WhatsApp Chat',
