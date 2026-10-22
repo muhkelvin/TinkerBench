@@ -127,7 +127,7 @@ async function ProjectDetailContent({ params }: ProjectDetailPageProps) {
               rel="noopener noreferrer"
               className="touch-target px-4 py-2 rounded-lg bg-[#24251F] text-[#FFFEFA] text-sm font-medium inline-flex items-center gap-2 hover:opacity-90 transition-opacity"
             >
-              <span>Coba Demo Langsung</span>
+              <span>Lihat Website Langsung</span>
               <ExternalLink className="w-4 h-4" />
             </a>
           ) : (
