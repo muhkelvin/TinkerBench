@@ -5,10 +5,19 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { siteConfig } from '@/lib/site-config';
+import { useTranslation } from '@/lib/i18n/context';
+import { LanguageToggle } from './LanguageToggle';
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const { t } = useTranslation();
+
+  const navItems = [
+    { label: t.nav.labs, href: '/labs' },
+    { label: t.nav.notes, href: '/notes' },
+    { label: t.nav.about, href: '/about' },
+  ];
 
   // Close drawer when route changes
   useEffect(() => {
@@ -48,32 +57,38 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation (visible on md screens >= 768px) */}
-          <nav className="hidden md:flex items-center gap-1 font-mono text-[14px]">
-            {siteConfig.nav.map((item) => {
-              const isActive =
-                pathname === item.href ||
-                (item.href !== '/' && pathname.startsWith(item.href));
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`touch-target px-3.5 py-1.5 rounded-md transition-colors ${
-                    isActive
-                      ? 'font-medium text-[#24251F] bg-[#E5E1D6]/60'
-                      : 'text-[#686960] hover:text-[#24251F] hover:bg-[#E5E1D6]/30'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
+          <div className="hidden md:flex items-center gap-4">
+            <nav className="flex items-center gap-1 font-mono text-[14px]">
+              {navItems.map((item) => {
+                const isActive =
+                  pathname === item.href ||
+                  (item.href !== '/' && pathname.startsWith(item.href));
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`touch-target px-3.5 py-1.5 rounded-md transition-colors ${
+                      isActive
+                        ? 'font-medium text-[#24251F] bg-[#E5E1D6]/60'
+                        : 'text-[#686960] hover:text-[#24251F] hover:bg-[#E5E1D6]/30'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
 
-          {/* Mobile Hamburger Button (hidden on md screens >= 768px) */}
-          <div className="flex md:hidden">
+            <div className="h-4 w-[1px] bg-[#E5E1D6]" aria-hidden="true" />
+            <LanguageToggle />
+          </div>
+
+          {/* Mobile Right Bar: Language Toggle + Hamburger Button */}
+          <div className="flex md:hidden items-center gap-2">
+            <LanguageToggle showIcon={false} />
             <button
               type="button"
-              aria-label={isOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'}
+              aria-label={isOpen ? t.nav.closeMenu : t.nav.openMenu}
               aria-expanded={isOpen}
               onClick={() => setIsOpen(!isOpen)}
               className="touch-target text-[#24251F] hover:bg-[#E5E1D6]/50 rounded-lg p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#24251F]"
@@ -93,10 +108,13 @@ export function Header() {
           style={{ minHeight: 'calc(100dvh - 3.5rem)' }}
         >
           <div className="flex flex-col gap-2 pt-2">
-            <span className="font-mono text-xs text-[#686960] uppercase tracking-wider mb-2">
-              Menu Navigasi
-            </span>
-            {siteConfig.nav.map((item) => {
+            <div className="flex items-center justify-between mb-2">
+              <span className="font-mono text-xs text-[#686960] uppercase tracking-wider">
+                {t.nav.menuTitle}
+              </span>
+              <LanguageToggle />
+            </div>
+            {navItems.map((item) => {
               const isActive =
                 pathname === item.href ||
                 (item.href !== '/' && pathname.startsWith(item.href));
@@ -122,7 +140,7 @@ export function Header() {
 
           <div className="border-t border-[#E5E1D6] pt-6 pb-8 mt-8">
             <p className="font-mono text-xs text-[#686960] leading-relaxed mb-4">
-              {siteConfig.tagline}
+              {t.footer.tagline}
             </p>
             <div className="flex items-center gap-4 text-xs font-mono text-[#686960]">
               <a
@@ -131,21 +149,21 @@ export function Header() {
                 rel="noopener noreferrer"
                 className="hover:text-[#24251F] underline underline-offset-4"
               >
-                GitHub
+                {t.nav.github}
               </a>
               <Link
                 href="/about"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#24251F] underline underline-offset-4"
               >
-                Tentang
+                {t.nav.about}
               </Link>
               <Link
                 href="/privacy"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#24251F] underline underline-offset-4"
               >
-                Privasi
+                {t.nav.privacy}
               </Link>
             </div>
           </div>

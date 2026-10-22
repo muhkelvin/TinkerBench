@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="lsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0A0C"/>
+      <stop offset="50%" stop-color="#141417"/>
+      <stop offset="100%" stop-color="#080809"/>
+    </linearGradient>
+    <linearGradient id="lsGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="50%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <radialGradient id="lsGlow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#D97706" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#lsBg)"/>
+  <rect width="1200" height="675" fill="url(#lsGlow)"/>
+
+  <g stroke="#26262B" stroke-opacity="0.4" stroke-width="1">
+    <line x1="0" y1="135" x2="1200" y2="135" />
+    <line x1="0" y1="270" x2="1200" y2="270" />
+    <line x1="0" y1="405" x2="1200" y2="405" />
+    <line x1="0" y1="540" x2="1200" y2="540" />
+    <line x1="300" y1="0" x2="300" y2="675" />
+    <line x1="600" y1="0" x2="600" y2="675" />
+    <line x1="900" y1="0" x2="900" y2="675" />
+  </g>
+
+  <!-- Brand Header -->
+  <g transform="translate(100, 90)">
+    <rect x="0" y="0" width="160" height="32" rx="16" fill="#1C1917" stroke="#D97706" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="80" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#FBBF24" text-anchor="middle" letter-spacing="2">PRODUCT STUDIO</text>
+  </g>
+
+  <g transform="translate(100, 170)">
+    <text x="0" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="900" fill="#FFFFFF" letter-spacing="-1">LUXSHOOT.</text>
+    <text x="0" y="95" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="700" fill="url(#lsGold)" letter-spacing="-0.5">Elevate Your Product Visuals.</text>
+    <text x="0" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="400" fill="#A1A1AA">High-end product photography, advanced retouching, and 360° experiences.</text>
+  </g>
+
+  <!-- Showcase Cards -->
+  <g transform="translate(100, 370)">
+    <g transform="translate(0, 0)">
+      <rect width="310" height="180" rx="16" fill="#18181B" stroke="#27272A" stroke-width="1"/>
+      <text x="24" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Precision &amp; Clarity</text>
+      <text x="24" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#A1A1AA">Sensor optikal ultra tinggi &amp; lighting sinematik</text>
+      <rect x="24" y="125" width="120" height="26" rx="6" fill="#27272A"/>
+      <text x="84" y="142" font-family="monospace" font-size="11" fill="#F59E0B" text-anchor="middle">4K Raw Delivery</text>
+    </g>
+
+    <g transform="translate(345, 0)">
+      <rect width="310" height="180" rx="16" fill="#18181B" stroke="#27272A" stroke-width="1"/>
+      <text x="24" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">High-End Retouching</text>
+      <text x="24" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#A1A1AA">Penyempurnaan tekstur &amp; kalibrasi warna presisi</text>
+      <rect x="24" y="125" width="130" height="26" rx="6" fill="#27272A"/>
+      <text x="89" y="142" font-family="monospace" font-size="11" fill="#F59E0B" text-anchor="middle">Color Grading Suite</text>
+    </g>
+
+    <g transform="translate(690, 0)">
+      <rect width="310" height="180" rx="16" fill="#18181B" stroke="#27272A" stroke-width="1"/>
+      <text x="24" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">360° Interactive</text>
+      <text x="24" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#A1A1AA">Pengalaman putar produk untuk pembeli e-commerce</text>
+      <rect x="24" y="125" width="120" height="26" rx="6" fill="#27272A"/>
+      <text x="84" y="142" font-family="monospace" font-size="11" fill="#F59E0B" text-anchor="middle">3D Web Viewer</text>
+    </g>
+  </g>
+
+  <g transform="translate(100, 600)">
+    <text x="0" y="20" font-family="monospace" font-size="13" fill="#71717A">Live Demo: cp-poto.vercel.app • Next.js App Router • Tailwind CSS</text>
+  </g>
+</svg>

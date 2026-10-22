@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0A0C"/>
+      <stop offset="50%" stop-color="#14151B"/>
+      <stop offset="100%" stop-color="#08080A"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#1A1A1A"/>
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4813A" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2C1810"/>
+    </linearGradient>
+    <linearGradient id="cardGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#glow)"/>
+
+  <!-- Subtle Grid lines -->
+  <g stroke="#262730" stroke-opacity="0.4" stroke-width="1">
+    <line x1="0" y1="135" x2="1200" y2="135" />
+    <line x1="0" y1="270" x2="1200" y2="270" />
+    <line x1="0" y1="405" x2="1200" y2="405" />
+    <line x1="0" y1="540" x2="1200" y2="540" />
+    <line x1="240" y1="0" x2="240" y2="675" />
+    <line x1="480" y1="0" x2="480" y2="675" />
+    <line x1="720" y1="0" x2="720" y2="675" />
+    <line x1="960" y1="0" x2="960" y2="675" />
+  </g>
+
+  <!-- Header Category Badge -->
+  <g transform="translate(80, 70)">
+    <rect x="0" y="0" width="160" height="30" rx="15" fill="#1C1917" stroke="#F59E0B" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="80" y="20" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#FBBF24" text-anchor="middle" letter-spacing="2">AGENCY PORTFOLIO</text>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <g transform="translate(80, 140)">
+    <text x="0" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="900" fill="#FFFFFF" letter-spacing="-1.5">BrandLab Launchpad</text>
+    <text x="0" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="400" fill="#A1A1AA">Koleksi 6 Landing Page Berkonversi Tinggi &amp; Identitas Visual Terkurasi</text>
+  </g>
+
+  <!-- 3 Mini Showcase Cards -->
+  <g transform="translate(80, 260)">
+    <!-- Card 1: Lumière -->
+    <g transform="translate(0, 0)">
+      <rect width="320" height="280" rx="20" fill="#18181B" stroke="#27272A" stroke-width="1"/>
+      <rect width="320" height="110" rx="20" fill="url(#cardGrad1)"/>
+      <rect x="24" y="24" width="48" height="48" rx="12" fill="#1A1A1A" stroke="#C9A96E" stroke-opacity="0.3"/>
+      <text x="48" y="56" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#C9A96E" text-anchor="middle">L</text>
+      <text x="86" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#A1A1AA" letter-spacing="1.5">SKINCARE &amp; BEAUTY</text>
+      <text x="24" y="155" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#FFFFFF">Lumière</text>
+      <text x="24" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#71717A">Kulit Sehat, Cerah &amp; Glowing Alami</text>
+      <rect x="24" y="220" width="80" height="24" rx="6" fill="#27272A"/>
+      <text x="64" y="236" font-family="monospace" font-size="11" fill="#A1A1AA" text-anchor="middle">Aa • playfair</text>
+      <rect x="112" y="220" width="80" height="24" rx="6" fill="#27272A"/>
+      <text x="152" y="236" font-family="monospace" font-size="11" fill="#A1A1AA" text-anchor="middle">Aa • dmsans</text>
+    </g>
+
+    <!-- Card 2: Brewly -->
+    <g transform="translate(360, 0)">
+      <rect width="320" height="280" rx="20" fill="#18181B" stroke="#27272A" stroke-width="1"/>
+      <rect width="320" height="110" rx="20" fill="url(#cardGrad2)"/>
+      <rect x="24" y="24" width="48" height="48" rx="12" fill="#2C1810" stroke="#D4813A" stroke-opacity="0.3"/>
+      <text x="48" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#D4813A" text-anchor="middle">B</text>
+      <text x="86" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#A1A1AA" letter-spacing="1.5">COFFEE SUBSCRIPTION</text>
+      <text x="24" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">Brewly</text>
+      <text x="24" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#71717A">Kurasi Kopi Terbaik Nusantara</text>
+      <rect x="24" y="220" width="70" height="24" rx="6" fill="#27272A"/>
+      <text x="59" y="236" font-family="monospace" font-size="11" fill="#A1A1AA" text-anchor="middle">Aa • sora</text>
+      <rect x="102" y="220" width="70" height="24" rx="6" fill="#27272A"/>
+      <text x="137" y="236" font-family="monospace" font-size="11" fill="#A1A1AA" text-anchor="middle">Aa • inter</text>
+    </g>
+
+    <!-- Card 3: Skillshift -->
+    <g transform="translate(720, 0)">
+      <rect width="320" height="280" rx="20" fill="#18181B" stroke="#27272A" stroke-width="1"/>
+      <rect width="320" height="110" rx="20" fill="url(#cardGrad3)"/>
+      <rect x="24" y="24" width="48" height="48" rx="12" fill="#0F172A" stroke="#3B82F6" stroke-opacity="0.3"/>
+      <text x="48" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#3B82F6" text-anchor="middle">S</text>
+      <text x="86" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#A1A1AA" letter-spacing="1.5">ONLINE EDUCATION</text>
+      <text x="24" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">Skillshift</text>
+      <text x="24" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#71717A">Web Development &amp; UI/UX Praktis</text>
+      <rect x="24" y="220" width="110" height="24" rx="6" fill="#27272A"/>
+      <text x="79" y="236" font-family="monospace" font-size="11" fill="#A1A1AA" text-anchor="middle">Aa • plus jakarta</text>
+      <rect x="142" y="220" width="70" height="24" rx="6" fill="#27272A"/>
+      <text x="177" y="236" font-family="monospace" font-size="11" fill="#A1A1AA" text-anchor="middle">Aa • inter</text>
+    </g>
+  </g>
+
+  <!-- Footer Tagline -->
+  <g transform="translate(80, 595)">
+    <text x="0" y="20" font-family="monospace" font-size="13" fill="#71717A">Next.js App Router • Tailwind CSS • Framer Motion • Custom Typography &amp; Palettes</text>
+  </g>
+</svg>

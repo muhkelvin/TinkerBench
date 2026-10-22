@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="cpBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C14"/>
+      <stop offset="50%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#07090F"/>
+    </linearGradient>
+    <linearGradient id="indigoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <radialGradient id="cpGlow" cx="50%" cy="25%" r="60%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#cpBg)"/>
+  <rect width="1200" height="675" fill="url(#cpGlow)"/>
+
+  <!-- Subtle Architecture Grid -->
+  <g stroke="#1E293B" stroke-opacity="0.6" stroke-width="1">
+    <line x1="0" y1="135" x2="1200" y2="135" />
+    <line x1="0" y1="270" x2="1200" y2="270" />
+    <line x1="0" y1="405" x2="1200" y2="405" />
+    <line x1="0" y1="540" x2="1200" y2="540" />
+    <line x1="240" y1="0" x2="240" y2="675" />
+    <line x1="480" y1="0" x2="480" y2="675" />
+    <line x1="720" y1="0" x2="720" y2="675" />
+    <line x1="960" y1="0" x2="960" y2="675" />
+  </g>
+
+  <!-- Category Badge -->
+  <g transform="translate(80, 70)">
+    <rect x="0" y="0" width="180" height="30" rx="15" fill="#1E1B4B" stroke="#6366F1" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="90" y="20" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#A5B4FC" text-anchor="middle" letter-spacing="2">COMPANY PROFILE SUITE</text>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <g transform="translate(80, 140)">
+    <text x="0" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="50" font-weight="900" fill="#FFFFFF" letter-spacing="-1.5">Enterprise &amp; Agency Showcase</text>
+    <text x="0" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="400" fill="#94A3B8">6 Template Profil Bisnis Modern: Fotografi, Properti, Asuransi, Otomotif &amp; Hukum</text>
+  </g>
+
+  <!-- 3 Interactive Cards -->
+  <g transform="translate(80, 260)">
+    <!-- Card 1: Luxshoot (Product Photography) -->
+    <g transform="translate(0, 0)">
+      <rect width="320" height="280" rx="20" fill="#0B0F19" stroke="#1E293B" stroke-width="1"/>
+      <rect x="0" y="0" width="320" height="110" rx="20" fill="#111827"/>
+      <rect x="24" y="24" width="48" height="48" rx="12" fill="#1F2937" stroke="#F59E0B" stroke-opacity="0.3"/>
+      <text x="48" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="900" fill="#F59E0B" text-anchor="middle">L</text>
+      <text x="86" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#94A3B8" letter-spacing="1.5">PRODUCT STUDIO</text>
+      <text x="24" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF">LUXSHOOT</text>
+      <text x="24" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94A3B8">Elevate Your Product Visuals &amp; 360°</text>
+      <rect x="24" y="220" width="130" height="24" rx="6" fill="#1E293B"/>
+      <text x="89" y="236" font-family="monospace" font-size="11" fill="#CBD5E1" text-anchor="middle">cp-poto.vercel.app</text>
+    </g>
+
+    <!-- Card 2: LuxeLiving (Real Estate) -->
+    <g transform="translate(360, 0)">
+      <rect width="320" height="280" rx="20" fill="#0B0F19" stroke="#1E293B" stroke-width="1"/>
+      <rect x="0" y="0" width="320" height="110" rx="20" fill="#0E1E38"/>
+      <rect x="24" y="24" width="48" height="48" rx="12" fill="#172554" stroke="#38BDF8" stroke-opacity="0.4"/>
+      <text x="48" y="56" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#38BDF8" text-anchor="middle">LL</text>
+      <text x="86" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#94A3B8" letter-spacing="1.5">PREMIUM REAL ESTATE</text>
+      <text x="24" y="155" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#FFFFFF">LuxeLiving</text>
+      <text x="24" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94A3B8">Temukan Hunian Premium Impian</text>
+      <rect x="24" y="220" width="140" height="24" rx="6" fill="#1E293B"/>
+      <text x="94" y="236" font-family="monospace" font-size="11" fill="#CBD5E1" text-anchor="middle">cp-estate.vercel.app</text>
+    </g>
+
+    <!-- Card 3: CP-Auto & Law -->
+    <g transform="translate(720, 0)">
+      <rect width="320" height="280" rx="20" fill="#0B0F19" stroke="#1E293B" stroke-width="1"/>
+      <rect x="0" y="0" width="320" height="110" rx="20" fill="#1E1B4B"/>
+      <rect x="24" y="24" width="48" height="48" rx="12" fill="#312E81" stroke="#818CF8" stroke-opacity="0.4"/>
+      <text x="48" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#818CF8" text-anchor="middle">CP</text>
+      <text x="86" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#94A3B8" letter-spacing="1.5">FLEET &amp; LEGAL TECH</text>
+      <text x="24" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF">CP-Auto &amp; CP Law</text>
+      <text x="24" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94A3B8">Modern Fleet &amp; Corporate Solutions</text>
+      <rect x="24" y="220" width="130" height="24" rx="6" fill="#1E293B"/>
+      <text x="89" y="236" font-family="monospace" font-size="11" fill="#CBD5E1" text-anchor="middle">cp-auto / cp-law</text>
+    </g>
+  </g>
+
+  <!-- Footer Tagline -->
+  <g transform="translate(80, 595)">
+    <text x="0" y="20" font-family="monospace" font-size="13" fill="#64748B">Live Demos: cp-poto • cp-estate • cp-wedding • cp-insu • cp-auto • cp-law</text>
+  </g>
+</svg>

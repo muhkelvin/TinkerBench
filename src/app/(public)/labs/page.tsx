@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     'Koleksi proyek nyata, prototipe, live demo, dan rilis beta yang sedang dikerjakan di Tinkerbench Labs.',
 };
 
+import { LabsHeader, LabsEmptyState } from '@/components/labs/LabsView';
+
 interface LabsPageProps {
   searchParams: Promise<{
     q?: string;
@@ -40,14 +42,7 @@ async function LabsContent({ searchParams }: LabsPageProps) {
           ))}
         </div>
       ) : (
-        <div className="rounded-xl border border-dashed border-[#E5E1D6] p-12 text-center bg-[#FFFEFA]">
-          <p className="font-mono text-sm text-[#686960] mb-2">
-            Tidak ada proyek yang sesuai dengan filter pencarian.
-          </p>
-          <p className="text-xs text-[#686960]">
-            Coba ubah kata kunci atau reset filter status dan jenis proyek di atas.
-          </p>
-        </div>
+        <LabsEmptyState />
       )}
     </>
   );
@@ -56,17 +51,8 @@ async function LabsContent({ searchParams }: LabsPageProps) {
 export default function LabsPage({ searchParams }: LabsPageProps) {
   return (
     <div className="space-y-8">
-      {/* Page Header Static Shell */}
-      <div className="max-w-2xl">
-        <div className="inline-flex items-center gap-1.5 font-mono text-xs text-[#686960] mb-2 uppercase">
-          <FolderGit2 className="w-3.5 h-3.5" />
-          <span>Direktori Proyek</span>
-        </div>
-        <h1 className="h1-fluid text-[#24251F] mb-3">Labs</h1>
-        <p className="text-[#686960] leading-relaxed">
-          Koleksi proyek perangkat lunak: mulai dari <strong>Concept</strong> (ide & prototipe eksperimen) hingga <strong>Production</strong> (aplikasi stabil & siap pakai).
-        </p>
-      </div>
+      {/* Page Header */}
+      <LabsHeader />
 
       {/* Dynamic Content wrapped in Suspense for Next.js 16 PPR */}
       <Suspense

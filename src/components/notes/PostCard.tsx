@@ -1,14 +1,20 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import type { Post } from '@/types/database.types';
 import { formatDate, estimateReadingTime } from '@/lib/utils';
 import { Clock } from 'lucide-react';
+import { useLanguage } from '@/lib/i18n/context';
+import { localizePost } from '@/lib/i18n/project-translations';
 
 interface PostCardProps {
   post: Post;
 }
 
-export function PostCard({ post }: PostCardProps) {
+export function PostCard({ post: rawPost }: PostCardProps) {
+  const { locale, t } = useLanguage();
+  const post = localizePost(rawPost, locale);
   const readingTime = estimateReadingTime(post.content);
 
   return (
@@ -20,7 +26,7 @@ export function PostCard({ post }: PostCardProps) {
         <span>·</span>
         <span className="inline-flex items-center gap-1">
           <Clock className="w-3.5 h-3.5" />
-          {readingTime} menit baca
+          {readingTime} {t.notes.minRead}
         </span>
       </div>
 

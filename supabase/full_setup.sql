@@ -851,7 +851,173 @@ Publiqa dirancang untuk penulis dan penerbit yang menginginkan kecepatan, kesede
   demo_url = excluded.demo_url,
   is_featured = excluded.is_featured;
 
--- 10. Insert Post 1: Build Log & Technical Decision
+-- 10. Insert Project: BrandLab Launchpad
+insert into public.projects (
+  id,
+  title,
+  slug,
+  summary,
+  problem,
+  content,
+  features,
+  limitations,
+  tech_stack,
+  tags,
+  maturity,
+  publication_status,
+  project_type,
+  cover_path,
+  cover_alt,
+  gallery,
+  build_log,
+  demo_url,
+  source_url,
+  is_featured,
+  published_at
+) values (
+  '10000000-0000-0000-0000-000000000010',
+  'BrandLab Launchpad — Curated High-Converting Landing Pages',
+  'brandlab-launchpad',
+  'Koleksi 6 landing page berkonversi tinggi dalam satu arsitektur terintegrasi. Dirancang secara presisi dengan identitas brand, tema warna, dan tipografi unik untuk beragam sektor bisnis.',
+  'Banyak bisnis dan agensi kesulitan memproduksi landing page yang benar-benar berkonversi tinggi karena template generik seringkali mengabaikan hierarki visual, psikologi warna, dan identitas tipografi yang spesifik pada vertikal industri mereka.',
+  '## Koleksi 6 Landing Page Spesifik Industri
+
+BrandLab Launchpad menyajikan kurasi desain landing page performa tinggi yang memadukan estetika visual tajam dengan struktur tata letak berorientasi konversi.
+
+### 6 Vertikal Bisnis yang Disertakan:
+1. **Lumière (Skincare & Beauty)**: Desain mewah dengan font *Playfair Display* & *DM Sans*, nuansa warna gold champagne, dan narasi hasil nyata 14 hari.
+2. **Brewly (Coffee Subscription)**: Visual warm earthy tone dengan font *Sora* & *Inter* untuk kurasi kopi nusantara langsung ke rumah.
+3. **Wearbase (Korean Fashion)**: Estetika minimalis soft casual essentials dengan font *Outfit* & *Noto Sans KR*.
+4. **Fitframe (Personal Training)**: Desain high-energy beraksen lime neon dengan font *Space Grotesk* & *Inter* untuk program coaching 1-on-1.
+5. **Skillshift (Online Education)**: Antarmuka terstruktur dengan font *Plus Jakarta Sans* & *Inter* untuk kursus web development dan UI/UX design.
+6. **Cozify (Candle & Lifestyle)**: Nuansa hangat dan intim dengan font *Cormorant Garamond* & *Jost* untuk koleksi aromaterapi rumah.
+
+### Keunggulan Teknis
+- **Satu Aplikasi Terpadu**: 6 landing page dibangun dalam satu repository Next.js App Router dengan pemisahan rute yang terstruktur rapi.
+- **Micro-Interaction Dinamis**: Animasi transisi halus bertenaga Framer Motion meningkatkan engagement tanpa mengorbankan kecepatan muat.
+- **Tipografi Terkurasi**: Integrasi Google Fonts yang disesuaikan secara khusus untuk memperkuat voice dan karakter tiap brand.',
+  '["Koleksi 6 template landing page mandiri dengan identitas visual dan tipografi berbeda", "Animasi transisi halus dan scroll trigger interaktif dengan Framer Motion", "Arsitektur Next.js App Router yang ringan dengan Core Web Vitals optimal", "Komponen form CTA, price card, dan social proof yang diuji untuk konversi", "Responsif sempurna dari smartphone hingga monitor desktop layar lebar"]'::jsonb,
+  'Koleksi ini siap dihubungkan ke backend database, payment gateway, maupun form marketing automation.',
+  array['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Lucide React'],
+  array['landing-page', 'showcase', 'conversion', 'ui-ux', 'framer-motion', 'tailwind-css'],
+  'production',
+  'published',
+  'landing_page',
+  '/images/projects/brandlab-launchpad.svg',
+  'BrandLab Launchpad - Koleksi 6 Landing Page Berkonversi Tinggi',
+  '[]'::jsonb,
+  '[
+    {"date": "2026-10-15", "text": "Perancangan sistem tema modular dan pemilihan 6 varian font unik"},
+    {"date": "2026-10-19", "text": "Implementasi animasi transisi Framer Motion dan responsive preview grid"}
+  ]'::jsonb,
+  'https://landing-page-collection-indol.vercel.app/',
+  'https://github.com/muhkelvin/landing-page-collection',
+  true,
+  now() - interval '10 days'
+) on conflict (slug) do update set
+  title = excluded.title,
+  summary = excluded.summary,
+  problem = excluded.problem,
+  content = excluded.content,
+  features = excluded.features,
+  limitations = excluded.limitations,
+  tech_stack = excluded.tech_stack,
+  tags = excluded.tags,
+  cover_path = excluded.cover_path,
+  cover_alt = excluded.cover_alt,
+  demo_url = excluded.demo_url,
+  is_featured = excluded.is_featured;
+
+-- 11. Insert Project: Enterprise & Agency Showcase (Company Profile Suite)
+insert into public.projects (
+  id,
+  title,
+  slug,
+  summary,
+  problem,
+  content,
+  features,
+  limitations,
+  tech_stack,
+  tags,
+  maturity,
+  publication_status,
+  project_type,
+  cover_path,
+  cover_alt,
+  gallery,
+  build_log,
+  demo_url,
+  source_url,
+  is_featured,
+  published_at
+) values (
+  '10000000-0000-0000-0000-000000000011',
+  'Enterprise & Agency Showcase — 6 Modern Company Profile Templates',
+  'company-profile-suite',
+  'Paket showcase 6 profil perusahaan (Company Profile) modern lintas industri: Fotografi Komersial, Real Estate Mewah, Wedding Studio, Asuransi, Manajemen Armada Otomotif, dan Kantor Hukum.',
+  'Profil perusahaan tradisional seringkali kaku, lambat diakses di ponsel pintar, dan gagal memberikan kesan kredibel bagi calon klien. Bisnis membutuhkan representasi digital modern dengan arsitektur multi-halaman yang jelas dan fokus pada konversi prospek.',
+  '## Paket Profil Bisnis & Perusahaan Multi-Industri
+
+Showcase ini mendemonstrasikan fleksibilitas perancangan website profil perusahaan profesional yang disesuaikan untuk berbagai sektor industri komersial:
+
+### Direktori 6 Website Company Profile:
+1. **[Luxshoot — Commercial & Product Photography](https://cp-poto.vercel.app/)**
+   - Fokus: Fotografi produk high-end, retouching tingkat lanjut, dan showcase visual 360°.
+   - Karakter: Tema gelap mewah, galeri interaktif, dan penekanan konversi visual e-commerce.
+2. **[LuxeLiving — Premium Real Estate & Living](https://cp-estate.vercel.app/)**
+   - Fokus: Penjualan dan manajemen aset properti, villa, penthouse, dan hunian eksklusif.
+   - Karakter: Hero search filter terpadu, metrik kepercayaan, dan katalog properti unggulan.
+3. **[StudioWed — Timeless Wedding Photography](https://cp-wedding.vercel.app/)**
+   - Fokus: Fotografi pernikahan editorial dan storytelling momen emosional pasangan modern.
+   - Karakter: Nuansa monokrom bersih, tipografi anggun, dan alur booking konsultasi langsung.
+4. **[InsurePlus — Insurance & Protection Solution](https://cp-insu.vercel.app/contact)**
+   - Fokus: Solusi proteksi kesehatan, properti, dan kendaraan dengan jaringan 400+ RS rekanan.
+   - Karakter: Navigasi multi-page lengkap (About, Products, Claims, Contact), kartu manfaat, dan testimoni.
+5. **[CP-Auto — Fleet Management Operating System](https://cp-auto.vercel.app/about)**
+   - Fokus: Solusi perangkat lunak pengelolaan armada kendaraan komersial dan logistik.
+   - Karakter: Estetika dark-tech modern, metrik operasional (50M+ Miles Tracked, 99.9% Uptime), dan formulir Book Demo.
+6. **[CP Law — Modern Corporate Legal Counsel](https://cp-law.vercel.app/team)**
+   - Fokus: Firma hukum berdaya teknologi untuk M&A, Intellectual Property, dan corporate tech clients.
+   - Karakter: Profil direktori tim advokat, area praktik spesifik, dan integrasi Client Portal consultation.
+
+### Standar Rekayasa
+- **Multi-Page Architecture**: Setiap profil dilengkapi struktur informasi komprehensif (Layanan, Portfolio, Kisah/Tentang Kami, Tim, serta formulir Kontak).
+- **Mobile First & Touch-Friendly**: Dirancang untuk kemudahan navigasi di smartphone dengan CTA WhatsApp dan konsultasi yang jelas.
+- **Skalabilitas**: Dapat dengan mudah diintegrasikan dengan Headless CMS atau backend API kustom.',
+  '["6 website profil perusahaan lengkap mencakup vertikal industri utama", "Navigasi multi-page intuitif: Home, About Us, Services, Team, dan Contact", "Integrasi tombol Call-to-Action langsung ke WhatsApp dan Book Consultation", "Desain ultra-responsif dengan performa loading cepat dan skor Core Web Vitals tinggi", "Komponen kredibilitas bisnis: counter statistik, klien terkemuka, ulasan, dan FAQ"]'::jsonb,
+  'Konten dan struktur halaman pada tiap template dapat disesuaikan secara modular sesuai kebutuhan klien.',
+  array['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Lucide React', 'Responsive Web Design'],
+  array['company-profile', 'corporate', 'agency', 'showcase', 'landing-page', 'multi-industry'],
+  'production',
+  'published',
+  'customizable',
+  '/images/projects/company-profile-suite.svg',
+  'Enterprise & Agency Showcase - 6 Modern Company Profile Templates',
+  '[]'::jsonb,
+  '[
+    {"date": "2026-10-12", "text": "Perancangan konsep arsitektur dan wireframe untuk 6 profil industri berbeda"},
+    {"date": "2026-10-18", "text": "Penyelesaian deployment live demo dan pengujian responsivitas multi-device"}
+  ]'::jsonb,
+  'https://cp-poto.vercel.app/',
+  'https://github.com/muhkelvin/company-profile-collection',
+  true,
+  now() - interval '11 days'
+) on conflict (slug) do update set
+  title = excluded.title,
+  summary = excluded.summary,
+  problem = excluded.problem,
+  content = excluded.content,
+  features = excluded.features,
+  limitations = excluded.limitations,
+  tech_stack = excluded.tech_stack,
+  tags = excluded.tags,
+  cover_path = excluded.cover_path,
+  cover_alt = excluded.cover_alt,
+  demo_url = excluded.demo_url,
+  is_featured = excluded.is_featured;
+
+-- 12. Insert Post 1: Build Log & Technical Decision
 insert into public.posts (
   id,
   title,

@@ -1,24 +1,31 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import type { Project } from '@/types/database.types';
 import { MaturityBadge } from './MaturityBadge';
+import { useLanguage } from '@/lib/i18n/context';
+import { localizeProject } from '@/lib/i18n/project-translations';
 
 interface ProjectCardProps {
   project: Project;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project: rawProject }: ProjectCardProps) {
+  const { locale, t } = useLanguage();
+  const project = localizeProject(rawProject, locale);
+
   const typeLabels: Record<string, string> = {
-    web_app: 'Web App',
-    pwa: 'PWA',
-    saas: 'SaaS',
-    ecommerce: 'E-Commerce',
-    landing_page: 'Landing Page',
-    portfolio: 'Web App',
-    customizable: 'Web App',
-    saas_candidate: 'SaaS',
+    web_app: t.labs.categories.web_app || 'Web App',
+    pwa: t.labs.categories.pwa || 'PWA',
+    saas: t.labs.categories.saas || 'SaaS',
+    ecommerce: t.labs.categories.ecommerce || 'E-Commerce',
+    landing_page: t.labs.categories.landing_page || 'Landing Page',
+    portfolio: t.labs.categories.web_app || 'Web App',
+    customizable: t.labs.categories.web_app || 'Web App',
+    saas_candidate: t.labs.categories.saas || 'SaaS',
   };
 
   const projectTypeLabel = typeLabels[project.project_type] || 'Web App';

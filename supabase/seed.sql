@@ -624,7 +624,520 @@ Publiqa dirancang untuk penulis dan penerbit yang menginginkan kecepatan, kesede
   demo_url = excluded.demo_url,
   is_featured = excluded.is_featured;
 
--- 10. Insert Post 1: Build Log & Technical Decision
+-- 10. Insert Project: BrandLab Launchpad
+insert into public.projects (
+  id,
+  title,
+  slug,
+  summary,
+  problem,
+  content,
+  features,
+  limitations,
+  tech_stack,
+  tags,
+  maturity,
+  publication_status,
+  project_type,
+  cover_path,
+  cover_alt,
+  gallery,
+  build_log,
+  demo_url,
+  source_url,
+  is_featured,
+  published_at
+) values (
+  '10000000-0000-0000-0000-000000000010',
+  'BrandLab Launchpad — Curated High-Converting Landing Pages',
+  'brandlab-launchpad',
+  'Koleksi 6 landing page berkonversi tinggi dalam satu arsitektur terintegrasi. Dirancang secara presisi dengan identitas brand, tema warna, dan tipografi unik untuk beragam sektor bisnis.',
+  'Banyak bisnis dan agensi kesulitan memproduksi landing page yang benar-benar berkonversi tinggi karena template generik seringkali mengabaikan hierarki visual, psikologi warna, dan identitas tipografi yang spesifik pada vertikal industri mereka.',
+  '## Koleksi 6 Landing Page Spesifik Industri
+
+BrandLab Launchpad menyajikan kurasi desain landing page performa tinggi yang memadukan estetika visual tajam dengan struktur tata letak berorientasi konversi.
+
+### 6 Vertikal Bisnis yang Disertakan:
+1. **Lumière (Skincare & Beauty)**: Desain mewah dengan font *Playfair Display* & *DM Sans*, nuansa warna gold champagne, dan narasi hasil nyata 14 hari.
+2. **Brewly (Coffee Subscription)**: Visual warm earthy tone dengan font *Sora* & *Inter* untuk kurasi kopi nusantara langsung ke rumah.
+3. **Wearbase (Korean Fashion)**: Estetika minimalis soft casual essentials dengan font *Outfit* & *Noto Sans KR*.
+4. **Fitframe (Personal Training)**: Desain high-energy beraksen lime neon dengan font *Space Grotesk* & *Inter* untuk program coaching 1-on-1.
+5. **Skillshift (Online Education)**: Antarmuka terstruktur dengan font *Plus Jakarta Sans* & *Inter* untuk kursus web development dan UI/UX design.
+6. **Cozify (Candle & Lifestyle)**: Nuansa hangat dan intim dengan font *Cormorant Garamond* & *Jost* untuk koleksi aromaterapi rumah.
+
+### Keunggulan Teknis
+- **Satu Aplikasi Terpadu**: 6 landing page dibangun dalam satu repository Next.js App Router dengan pemisahan rute yang terstruktur rapi.
+- **Micro-Interaction Dinamis**: Animasi transisi halus bertenaga Framer Motion meningkatkan engagement tanpa mengorbankan kecepatan muat.
+- **Tipografi Terkurasi**: Integrasi Google Fonts yang disesuaikan secara khusus untuk memperkuat voice dan karakter tiap brand.',
+  '["Koleksi 6 template landing page mandiri dengan identitas visual dan tipografi berbeda", "Animasi transisi halus dan scroll trigger interaktif dengan Framer Motion", "Arsitektur Next.js App Router yang ringan dengan Core Web Vitals optimal", "Komponen form CTA, price card, dan social proof yang diuji untuk konversi", "Responsif sempurna dari smartphone hingga monitor desktop layar lebar"]'::jsonb,
+  'Koleksi ini siap dihubungkan ke backend database, payment gateway, maupun form marketing automation.',
+  array['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Lucide React'],
+  array['landing-page', 'showcase', 'conversion', 'ui-ux', 'framer-motion', 'tailwind-css'],
+  'production',
+  'published',
+  'landing_page',
+  '/images/projects/brandlab-launchpad.svg',
+  'BrandLab Launchpad - Koleksi 6 Landing Page Berkonversi Tinggi',
+  '[]'::jsonb,
+  '[
+    {"date": "2026-10-15", "text": "Perancangan sistem tema modular dan pemilihan 6 varian font unik"},
+    {"date": "2026-10-19", "text": "Implementasi animasi transisi Framer Motion dan responsive preview grid"}
+  ]'::jsonb,
+  'https://landing-page-collection-indol.vercel.app/',
+  'https://github.com/muhkelvin/landing-page-collection',
+  true,
+  now() - interval '10 days'
+) on conflict (slug) do update set
+  title = excluded.title,
+  summary = excluded.summary,
+  problem = excluded.problem,
+  content = excluded.content,
+  features = excluded.features,
+  limitations = excluded.limitations,
+  tech_stack = excluded.tech_stack,
+  tags = excluded.tags,
+  cover_path = excluded.cover_path,
+  cover_alt = excluded.cover_alt,
+  demo_url = excluded.demo_url,
+  is_featured = excluded.is_featured;
+
+-- 11. Insert Project: LUXSHOOT
+insert into public.projects (
+  id,
+  title,
+  slug,
+  summary,
+  problem,
+  content,
+  features,
+  limitations,
+  tech_stack,
+  tags,
+  maturity,
+  publication_status,
+  project_type,
+  cover_path,
+  cover_alt,
+  gallery,
+  build_log,
+  demo_url,
+  source_url,
+  is_featured,
+  published_at
+) values (
+  '10000000-0000-0000-0000-000000000011',
+  'LUXSHOOT — High-End Product Photography & Visuals',
+  'luxshoot',
+  'Website profil studio fotografi produk komersial premium dengan showcase visual 360°, retouching tingkat lanjut, dan estetika luxury modern untuk meningkatkan konversi brand.',
+  'Banyak brand ritel dan e-commerce kesulitan meningkatkan rasio konversi karena foto produk mereka tampak datar, pencahayaan kurang profesional, dan tidak memiliki representasi visual interaktif yang membangun kepercayaan konsumen.',
+  '## Studio Visual Produk Komersial & Retouching
+
+LUXSHOOT adalah studio fotografi komersial yang berfokus pada produk bernilai tinggi (jam tangan mewah, kosmetik, aksesoris kulit, dan perhiasan).
+
+### Layanan Utama
+- **Precision & Clarity**: Setup tata cahaya sinematik untuk menonjolkan setiap detail dan tekstur material produk.
+- **High-End Retouching**: Penyesuaian presisi warna akurat, eliminasi debu mikro, dan penyempurnaan pantulan cahaya.
+- **360° Interactive Experience**: Pengalaman rotasi produk 360 derajat interaktif langsung di peramban web.
+
+### Portofolio & Kolaborasi
+Telah dipercaya oleh merek industri global seperti AURA, LUMINA, VANGUARD, ELEVATE, dan NOVA dengan karya unggulan meliputi Chronograph Masterpiece, Velvet Elegance, Artisan Leather, dan Diamond Collection.',
+  '["Showcase galeri produk beresolusi tinggi dengan interaksi dinamis", "Bagian pengenalan layanan: Precision & Clarity, High-End Retouching, 360° Interactive", "Social proof mitra brand terkemuka (Aura, Lumina, Vanguard, Elevate, Nova)", "Integrasi tombol CTA instan: View Portfolio dan Explore Services"]'::jsonb,
+  'Integrasi booking sesi pemotretan studio langsung terhubung via formulir kontak dan WhatsApp.',
+  array['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Lucide React'],
+  array['company-profile', 'photography', 'portfolio', 'commercial', 'luxury'],
+  'production',
+  'published',
+  'customizable',
+  null,
+  null,
+  '[]'::jsonb,
+  '[
+    {"date": "2026-10-12", "text": "Konsep tata letak editorial gelap dan tipografi luxury gold"},
+    {"date": "2026-10-16", "text": "Implementasi grid showcase recent masterpieces dan responsive CTA"}
+  ]'::jsonb,
+  'https://cp-poto.vercel.app/',
+  'https://github.com/muhkelvin/cp-poto',
+  true,
+  now() - interval '11 days'
+) on conflict (slug) do update set
+  title = excluded.title,
+  summary = excluded.summary,
+  problem = excluded.problem,
+  content = excluded.content,
+  features = excluded.features,
+  limitations = excluded.limitations,
+  tech_stack = excluded.tech_stack,
+  tags = excluded.tags,
+  cover_path = excluded.cover_path,
+  cover_alt = excluded.cover_alt,
+  demo_url = excluded.demo_url,
+  is_featured = excluded.is_featured;
+
+-- 12. Insert Project: LuxeLiving
+insert into public.projects (
+  id,
+  title,
+  slug,
+  summary,
+  problem,
+  content,
+  features,
+  limitations,
+  tech_stack,
+  tags,
+  maturity,
+  publication_status,
+  project_type,
+  cover_path,
+  cover_alt,
+  gallery,
+  build_log,
+  demo_url,
+  source_url,
+  is_featured,
+  published_at
+) values (
+  '10000000-0000-0000-0000-000000000012',
+  'LuxeLiving — Premium Real Estate & Modern Living',
+  'luxeliving',
+  'Website profil perusahaan properti dan real estate hunian mewah dengan katalog pencarian properti unggulan, metrik kredibilitas, dan layanan konsultasi terintegrasi.',
+  'Calon pembeli properti kelas atas sering merasa ragu berinvestasi ketika situs agen real estate lambat, tidak transparan dalam menampilkan spesifikasi hunian, serta memiliki alur navigasi yang rumit.',
+  '## Portofolio Real Estate & Hunian Eksklusif
+
+LuxeLiving menghadirkan representasi digital berkelas untuk properti hunian mewah, villa modern, penthouse, dan townhouse di lokasi strategis.
+
+### Fitur Kunci Platform
+- **Pencarian Properti Interaktif**: Filter tipe properti, lokasi (Jakarta, Bali, Bandung), dan estimasi rentang harga.
+- **Katalog Properti Unggulan**: Detail informasi kamar tidur, kamar mandi, luas tanah, dan harga (Grand Royale Residence PIK, Villa Modern Sanur, Penthouse Senopati).
+- **Layanan Komprehensif**: Konsultasi Jual Properti, Beli Properti, Sewa Komersial, hingga Manajemen Aset.
+- **Kredibilitas Teruji**: 15+ tahun pengalaman, 500+ properti terjual, 98% kepuasan klien, dan 25+ penghargaan desain.',
+  '["Filter pencarian properti berdasarkan tipe, lokasi, dan harga", "Katalog kartu properti unggulan lengkap dengan spesifikasi kamar dan harga", "Statistik kredibilitas perusahaan dan ulasan kepuasan klien", "Bagian berita tren pasar properti dan artikel tips investasi", "Formulir booking konsultasi dan integrasi kontak WhatsApp"]'::jsonb,
+  'Koneksi listing MLS properti eksternal dapat dihubungkan via API terintegrasi.',
+  array['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Lucide React'],
+  array['company-profile', 'real-estate', 'property', 'luxury', 'corporate'],
+  'production',
+  'published',
+  'customizable',
+  null,
+  null,
+  '[]'::jsonb,
+  '[
+    {"date": "2026-10-10", "text": "Rancang struktur layout katalog properti dan filter harga"},
+    {"date": "2026-10-14", "text": "Penyusunan section layanan komprehensif dan review nasabah"}
+  ]'::jsonb,
+  'https://cp-estate.vercel.app/',
+  'https://github.com/muhkelvin/cp-estate',
+  true,
+  now() - interval '12 days'
+) on conflict (slug) do update set
+  title = excluded.title,
+  summary = excluded.summary,
+  problem = excluded.problem,
+  content = excluded.content,
+  features = excluded.features,
+  limitations = excluded.limitations,
+  tech_stack = excluded.tech_stack,
+  tags = excluded.tags,
+  cover_path = excluded.cover_path,
+  cover_alt = excluded.cover_alt,
+  demo_url = excluded.demo_url,
+  is_featured = excluded.is_featured;
+
+-- 13. Insert Project: StudioWed
+insert into public.projects (
+  id,
+  title,
+  slug,
+  summary,
+  problem,
+  content,
+  features,
+  limitations,
+  tech_stack,
+  tags,
+  maturity,
+  publication_status,
+  project_type,
+  cover_path,
+  cover_alt,
+  gallery,
+  build_log,
+  demo_url,
+  source_url,
+  is_featured,
+  published_at
+) values (
+  '10000000-0000-0000-0000-000000000013',
+  'StudioWed — Editorial Wedding Photography Studio',
+  'studiowed',
+  'Website profil studio dokumentasi pernikahan editorial modern dengan tata letak visual elegan, paket layanan komprehensif, dan sistem penjadwalan konsultasi intim.',
+  'Pasangan pengantin modern menginginkan gaya dokumentasi pernikahan yang timeless dan bercerita (storytelling), namun sering kesulitan menemukan fotografer dengan paket layanan yang transparan dan proses konsultasi yang rapi.',
+  '## Dokumentasi Pernikahan Timeless & Otentik
+
+StudioWed mengabadikan momen sakral pernikahan dengan pendekatan editorial fotografi modern dan penceritaan yang emosional.
+
+### Penawaran Layanan (A Seamless Experience)
+- **Full-Day Coverage**: Dokumentasi menyeluruh mulai dari sesi persiapan pagi hingga resepsi malam.
+- **Digital Delivery**: Galeri online beresolusi tinggi dengan color grading premium.
+- **Engagement Sessions**: Sesi pemotretan pre-wedding intim yang natural sebelum hari H.
+- **Heirloom Albums**: Album fisik cetak eksklusif dengan material lay-flat archival berkualitas tinggi.
+
+### Metrik Kinerja Studio
+Telah mengabadikan 150+ pernikahan, 98 ulasan bintang lima, 12 publikasi majalah gaya hidup, dan 8 tahun rekam jejak industri fotografi.',
+  '["Desain tipografi editorial monokrom modern dan bersih", "Kartu paket layanan: Full-Day Coverage, Digital Delivery, Engagement, Heirloom Albums", "Lencana ketersediaan booking real-time (Now booking for 2027)", "Metrik statistik jam terbang dan review bintang 5", "Alur CTA pemesanan konsultasi Book Consultation & Inquire Now"]'::jsonb,
+  'Kapasitas pemotretan dibatasi per musim untuk menjamin kualitas kurasi karya seni.',
+  array['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Lucide React'],
+  array['company-profile', 'wedding', 'photography', 'editorial', 'portfolio'],
+  'production',
+  'published',
+  'customizable',
+  null,
+  null,
+  '[]'::jsonb,
+  '[
+    {"date": "2026-10-11", "text": "Desain antarmuka monokrom minimalis ramah fotografi editorial"},
+    {"date": "2026-10-15", "text": "Pengembangan alur CTA konsultasi booking dan integrasi faq"}
+  ]'::jsonb,
+  'https://cp-wedding.vercel.app/',
+  'https://github.com/muhkelvin/cp-wedding',
+  true,
+  now() - interval '13 days'
+) on conflict (slug) do update set
+  title = excluded.title,
+  summary = excluded.summary,
+  problem = excluded.problem,
+  content = excluded.content,
+  features = excluded.features,
+  limitations = excluded.limitations,
+  tech_stack = excluded.tech_stack,
+  tags = excluded.tags,
+  cover_path = excluded.cover_path,
+  cover_alt = excluded.cover_alt,
+  demo_url = excluded.demo_url,
+  is_featured = excluded.is_featured;
+
+-- 14. Insert Project: InsurePlus
+insert into public.projects (
+  id,
+  title,
+  slug,
+  summary,
+  problem,
+  content,
+  features,
+  limitations,
+  tech_stack,
+  tags,
+  maturity,
+  publication_status,
+  project_type,
+  cover_path,
+  cover_alt,
+  gallery,
+  build_log,
+  demo_url,
+  source_url,
+  is_featured,
+  published_at
+) values (
+  '10000000-0000-0000-0000-000000000014',
+  'InsurePlus — Comprehensive Insurance Solutions',
+  'insureplus',
+  'Website profil perusahaan asuransi terpercaya dengan portal panduan klaim digital, katalog produk proteksi finansial, kalkulator penawaran, dan jaringan 400+ RS.',
+  'Industri asuransi konvensional kerap dipersepsikan rumit dan penuh birokrasi, membuat nasabah enggan mendaftar atau kesulitan memahami manfaat proteksi dan alur klaim.',
+  '## Perlindungan Pasti di Setiap Ketidakpastian
+
+InsurePlus hadir sejak 2005 untuk memberikan solusi proteksi kesehatan, aset properti, dan kendaraan dengan dukungan teknologi klaim modern.
+
+### Portofolio Proteksi
+- **Asuransi Kesehatan**: Perlindungan komprehensif untuk biaya rawat inap dan keluarga dengan fasilitas cashless.
+- **Asuransi Properti**: Proteksi maksimal aset hunian dan bisnis dari risiko kebakaran dan bencana.
+- **Asuransi Kendaraan**: Jaminan perlindungan mobil dari kerusakan kecelakaan hingga kehilangan.
+
+### Keunggulan Layanan
+- **Klaim Digital 24 Jam**: Proses klaim cepat via portal dengan garansi SLA 3 hari kerja.
+- **Jaringan RS Rekanan Luas**: Akses instan ke 400+ rumah sakit rekanan di seluruh Indonesia.
+- **Dukungan Konsultan Ahli**: Didampingi perencana keuangan tersertifikasi dengan pengalaman 20+ tahun.',
+  '["Struktur navigasi multi-halaman: Home, About Us, Products, Claims, Contact", "Katalog produk proteksi kesehatan, properti, dan kendaraan", "Daftar mitra strategis: Bank BCA, Siloam Hospitals, Astra, Pertamina, Garuda", "Bagian testimoni nasabah terverifikasi", "Formulir interaktif permintaan penawaran premi dan konsultasi WhatsApp"]'::jsonb,
+  'Proses pengajuan polis resmi dialihkan melalui verifikasi KYC perencana keuangan.',
+  array['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Lucide React'],
+  array['company-profile', 'insurance', 'finance', 'corporate', 'protection'],
+  'production',
+  'published',
+  'customizable',
+  null,
+  null,
+  '[]'::jsonb,
+  '[
+    {"date": "2026-10-09", "text": "Penyusunan arsitektur halaman produk asuransi dan panduan klaim"},
+    {"date": "2026-10-13", "text": "Pembuatan formulir konsultasi polis dan direktori RS rekanan"}
+  ]'::jsonb,
+  'https://cp-insu.vercel.app/contact',
+  'https://github.com/muhkelvin/cp-insu',
+  true,
+  now() - interval '14 days'
+) on conflict (slug) do update set
+  title = excluded.title,
+  summary = excluded.summary,
+  problem = excluded.problem,
+  content = excluded.content,
+  features = excluded.features,
+  limitations = excluded.limitations,
+  tech_stack = excluded.tech_stack,
+  tags = excluded.tags,
+  cover_path = excluded.cover_path,
+  cover_alt = excluded.cover_alt,
+  demo_url = excluded.demo_url,
+  is_featured = excluded.is_featured;
+
+-- 15. Insert Project: CP-Auto
+insert into public.projects (
+  id,
+  title,
+  slug,
+  summary,
+  problem,
+  content,
+  features,
+  limitations,
+  tech_stack,
+  tags,
+  maturity,
+  publication_status,
+  project_type,
+  cover_path,
+  cover_alt,
+  gallery,
+  build_log,
+  demo_url,
+  source_url,
+  is_featured,
+  published_at
+) values (
+  '10000000-0000-0000-0000-000000000015',
+  'CP-Auto — Fleet Management & Automotive Operations',
+  'cp-auto',
+  'Website profil perusahaan teknologi manajemen armada kendaraan komersial dengan metrik keandalan sistem, showcase solusi operasional armada, dan booking demo.',
+  'Manajemen armada logistik tradisional yang mengandalkan spreadsheet manual rentan terhadap keterlambatan jadwal servis, pembengkakan biaya bahan bakar, dan ketidakpastian pelacakan aset kendaraan di lapangan.',
+  '## Sistem Operasi Cerdas untuk Armada Kendaraan Modern
+
+CP-Auto menyediakan platform terpadu untuk menyederhanakan operasional armada transportasi, mulai dari pemeliharaan preventif hingga penagihan otomatis.
+
+### Skala & Rekam Jejak
+- **Didirikan 2021**: Tumbuh pesat menjadi mitra ribuan armada pengiriman lokal dan perusahaan logistik enterprise.
+- **50M+ Miles Tracked**: Puluhan juta mil terlacak dengan akurasi telemetri tinggi.
+- **99.9% Uptime SLA**: Infrastruktur komputasi tangguh yang siap mendukung operasional 24/7 tanpa henti.
+
+### Solusi Platform
+Menghubungkan manajer armada dengan data performa kendaraan real-time, manajemen konsumsi bahan bakar, kepatuhan keselamatan pengemudi, dan portal sales demo.',
+  '["Navigasi multi-page profesional: Services, Vehicles, Pricing, About Us, Contact", "Hero metrik kredibilitas: 50M+ Miles Tracked dan 99.9% Uptime SLA", "Cerita visi misi perusahaan di halaman About Us", "Alur interaksi Call-to-Action: Contact Sales dan Book Demo", "Desain antarmuka bertema gelap futuristik dengan radial glow gradient"]'::jsonb,
+  'Koneksi telematika OBD-II kendaraan terhubung ke server backend enterprise.',
+  array['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Lucide React'],
+  array['company-profile', 'automotive', 'fleet-management', 'saas', 'enterprise'],
+  'production',
+  'published',
+  'customizable',
+  null,
+  null,
+  '[]'::jsonb,
+  '[
+    {"date": "2026-10-08", "text": "Desain layout tech modern dengan dark aesthetic dan metric cards"},
+    {"date": "2026-10-12", "text": "Pembuatan halaman story About Us dan form lead booking demo"}
+  ]'::jsonb,
+  'https://cp-auto.vercel.app/about',
+  'https://github.com/muhkelvin/cp-auto',
+  true,
+  now() - interval '15 days'
+) on conflict (slug) do update set
+  title = excluded.title,
+  summary = excluded.summary,
+  problem = excluded.problem,
+  content = excluded.content,
+  features = excluded.features,
+  limitations = excluded.limitations,
+  tech_stack = excluded.tech_stack,
+  tags = excluded.tags,
+  cover_path = excluded.cover_path,
+  cover_alt = excluded.cover_alt,
+  demo_url = excluded.demo_url,
+  is_featured = excluded.is_featured;
+
+-- 16. Insert Project: CP Law
+insert into public.projects (
+  id,
+  title,
+  slug,
+  summary,
+  problem,
+  content,
+  features,
+  limitations,
+  tech_stack,
+  tags,
+  maturity,
+  publication_status,
+  project_type,
+  cover_path,
+  cover_alt,
+  gallery,
+  build_log,
+  demo_url,
+  source_url,
+  is_featured,
+  published_at
+) values (
+  '10000000-0000-0000-0000-000000000016',
+  'CP Law — Modern Corporate & Tech Legal Counsel',
+  'cp-law',
+  'Website profil firma hukum korporat dan teknologi dengan profil tim partner advokat, area praktik spesialis (M&A, IP, Ketenagakerjaan, Privasi Data), dan portal klien.',
+  'Klien perusahaan rintisan dan korporat teknologi membutuhkan firma hukum yang tidak hanya menguasai regulasi hukum tradisional, tetapi juga memahami arsitektur software, kepemilikan kode IP, dan dinamika pendanaan modal ventura.',
+  '## Penasihat Hukum Korporat Berdaya Teknologi
+
+CP Law Group memadukan keahlian hukum kelas atas (BigLaw) dengan kelincahan startup untuk melindungi dan mengakselerasi pertumbuhan bisnis klien.
+
+### Tim Advokat Unggulan (Our Partners)
+- **Sarah Jenkins (Managing Partner)**: Mantan BigLaw partner spesialis M&A korporat dan pendanaan venture capital.
+- **David Chen (Partner, IP & Tech)**: Advokat paten berlatar belakang software engineer yang melindungi aset inti teknologi klien.
+- **Elena Rodriguez (Head of Operations)**: Memastikan eksekusi layanan firma berjalan presisi dan efisien layaknya startup modern.
+
+### Area Praktik Utama
+- **Corporate & M&A**: Struktur entitas bisnis, restrukturisasi, dan transaksi akuisisi.
+- **Intellectual Property**: Perlindungan paten software, merek dagang, dan lisensi hak cipta.
+- **Employment & Labor**: Kepatuhan ketenagakerjaan dan skema opsi saham karyawan (ESOP).
+- **Data Privacy & Compliance**: Kepatuhan perlindungan data pribadi dan keamanan siber.',
+  '["Navigasi terstruktur: Services, About Us, Team, dan Contact", "Direktori profil tim managing partner lengkap dengan biografi dan keahlian", "Katalog spesialisasi area praktik hukum korporat dan teknologi", "Integrasi Client Portal access dan tombol Book Consultation", "Desain typography serif elegan dengan layout saas-card modern"]'::jsonb,
+  'Kerahasiaan dokumen perkara klien dikelola melalui portal tersertifikasi SOC 2.',
+  array['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Lucide React'],
+  array['company-profile', 'legal', 'law-firm', 'corporate', 'consulting'],
+  'production',
+  'published',
+  'customizable',
+  null,
+  null,
+  '[]'::jsonb,
+  '[
+    {"date": "2026-10-07", "text": "Perancangan direktori profil partner dan katalog layanan hukum"},
+    {"date": "2026-10-11", "text": "Penyempurnaan kartu saas-card dan navigasi glass-header"}
+  ]'::jsonb,
+  'https://cp-law.vercel.app/team',
+  'https://github.com/muhkelvin/cp-law',
+  true,
+  now() - interval '16 days'
+) on conflict (slug) do update set
+  title = excluded.title,
+  summary = excluded.summary,
+  problem = excluded.problem,
+  content = excluded.content,
+  features = excluded.features,
+  limitations = excluded.limitations,
+  tech_stack = excluded.tech_stack,
+  tags = excluded.tags,
+  cover_path = excluded.cover_path,
+  cover_alt = excluded.cover_alt,
+  demo_url = excluded.demo_url,
+  is_featured = excluded.is_featured;
+
+-- 17. Insert Post 1: Build Log & Technical Decision
 insert into public.posts (
   id,
   title,

@@ -37,15 +37,19 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+import { LanguageProvider } from '@/lib/i18n/context';
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className={`${inter.variable} ${ibmPlexMono.variable}`}>
+    <html lang="id" suppressHydrationWarning className={`${inter.variable} ${ibmPlexMono.variable}`}>
       <body className="bg-[var(--bench-bg)] text-[var(--bench-primary)] min-h-dvh flex flex-col font-sans selection:bg-[var(--bench-lime)] selection:text-[var(--bench-primary)]">
-        {children}
+        <LanguageProvider initialLocale="id">
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
